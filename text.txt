@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Najih Naseem | Food & Beverage Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --ocean-deep: #0f172a;
+            --ocean-mid: #1e3a5f;
+            --sand: #f5f5dc;
+            --coral: #ff6b6b;
+            --gold: #d4af37;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .timeline-line {
+            background: linear-gradient(to bottom, var(--gold), transparent);
+        }
+        
+        .resort-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .resort-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .wave-animation {
+            animation: wave 8s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(255, 107, 107, 0.1));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .contact-btn {
+            background: linear-gradient(135deg, var(--gold), #b8941f);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+        
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.3) 0%, transparent 50%);
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .resort-link {
+            color: #fbbf24;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(251, 191, 36, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .resort-link:hover {
+            border-bottom: 1px solid #fbbf24;
+            color: #f59e0b;
+        }
+
+        .contact-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-action:hover {
+            background: rgba(251, 191, 36, 0.2);
+            transform: scale(1.05);
+        }
+
+        .profile-img {
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        }
+
+        /* Initials fallback */
+        .initials-avatar {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+            font-size: 4rem;
+            font-weight: bold;
+            color: #fbbf24;
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="parallax-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold serif text-yellow-400 tracking-wider">MN</div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-yellow-400 transition-colors">About</a>
+                <a href="#experience" class="hover:text-yellow-400 transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-yellow-400 transition-colors">Skills</a>
+                <a href="#contact" class="hover:text-yellow-400 transition-colors">Contact</a>
+            </div>
+            <a href="mailto:najih288@gmail.com" class="contact-btn px-6 py-2 rounded-full text-slate-900 font-semibold text-sm flex items-center gap-2">
+                <i data-lucide="mail" class="w-4 h-4"></i> Email Me
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="min-h-screen flex items-center justify-center relative pt-20">
+        <div class="hero-glow"></div>
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 fade-in">
+                <div class="inline-block px-4 py-2 rounded-full glass text-yellow-400 text-sm font-medium tracking-wide">
+                    Food & Beverage Professional
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold serif leading-tight">
+                    Mohamed Najih <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Naseem</span>
+                </h1>
+                <p class="text-xl text-slate-300 leading-relaxed max-w-lg">
+                    Experienced Food & Beverage professional with a strong background in luxury resorts across the Maldives, including Anantara, LUX*, and Jumeirah. Known for delivering consistent, high-quality guest service through dedication, continuous training, and daily learning.
+                </p>
+                
+                <!-- Quick Contact Actions -->
+                <div class="flex flex-wrap gap-4">
+                    <a href="tel:+9607960092" class="contact-action text-yellow-400">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        <span>+960 796-0092</span>
+                    </a>
+                    <a href="mailto:najih288@gmail.com" class="contact-action text-yellow-400">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span>najih288@gmail.com</span>
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <button onclick="document.getElementById('experience').scrollIntoView({behavior: 'smooth'})" 
+                            class="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-all flex items-center gap-2 group">
+                        View Experience <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+                    </button>
+                    <a href="#contact" class="px-8 py-4 rounded-full contact-btn text-slate-900 font-semibold flex items-center gap-2">
+                        <i data-lucide="user" class="w-4 h-4"></i> References
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-6 pt-4 text-slate-400">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-yellow-400"></i>
+                        <span>Maldives</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="briefcase" class="w-4 h-4 text-yellow-400"></i>
+                        <span>12+ Years Exp.</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="award" class="w-4 h-4 text-yellow-400"></i>
+                        <span>Luxury Hospitality</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative fade-in" style="transition-delay: 0.2s;">
+                <div class="absolute inset-0 bg-gradient-to-tr from-yellow-400/20 to-coral/20 rounded-3xl blur-3xl"></div>
+                <div class="relative glass rounded-3xl p-6 floating">
+                    <!-- PHOTO CONTAINER - Replace src with your image -->
+                    <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-slate-700 to-slate-800">
+                        <!-- OPTION 1: Initials (Default - works immediately) -->
+                        <div class="initials-avatar" id="photo-placeholder">
+                            MNN
+                        </div>
+                        
+                        <!-- OPTION 2: Your actual photo (uncomment and update path when ready) -->
+                        <!-- 
+                        <img src="photo.jpg" 
+                             alt="Mohamed Najih Naseem" 
+                             class="w-full h-full profile-img"
+                             onerror="document.getElementById('photo-placeholder').style.display='flex'; this.style.display='none';">
+                        -->
+                    </div>
+                    <div class="mt-6 grid grid-cols-2 gap-4">
+                        <div class="glass rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-yellow-400">4</div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider">Luxury Resorts</div>
+                        </div>
+                        <div class="glass rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-yellow-400">12+</div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-24 relative">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold serif mb-4">Professional Journey</h2>
+                <p class="text-slate-400">A decade of excellence in Maldivian luxury hospitality</p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 timeline-line rounded-full"></div>
+
+                <!-- Experience Items -->
+                <div class="space-y-12">
+                    <!-- Current Position -->
+                    <div class="relative fade-in">
+                        <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-yellow-400 rounded-full border-4 border-slate-900 z-10 shadow-lg shadow-yellow-400/50"></div>
+                        <div class="ml-20 md:ml-0 md:grid md:grid-cols-2 gap-8 items-center">
+                            <div class="md:text-right md:pr-12">
+                                <div class="glass rounded-2xl p-6 resort-card border-l-4 border-yellow-400">
+                                    <span class="text-yellow-400 text-sm font-semibold tracking-wider">Oct 2021 - Present</span>
+                                    <h3 class="text-2xl font-bold serif mt-2 mb-1">Food & Beverage Associate</h3>
+                                    <a href="https://www.jumeirah.com/en/maldives" target="_blank" class="resort-link text-lg inline-flex items-center gap-2 mb-4">
+                                        Jumeirah Maldives <i data-lucide="external-link" class="w-4 h-4"></i>
+                                    </a>
+                                    <ul class="space-y-2 text-sm text-slate-300">
+                                        <li class="flex items-start gap-2 md:justify-end">
+                                            <span>Ability to multitask and manage time efficiently during peak hours</span>
+                                            <i data-lucide="check-circle" class="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0"></i>
+                                        </li>
+                                        <li class="flex items-start gap-2 md:justify-end">
+                                            <span>Maintaining attention to detail in high-pressure environments</span>
+                                            <i data-lucide="check-circle" class="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0"></i>
+                                        </li>
+                                        <li class="flex items-start gap-2 md:justify-end">
+                                            <span>Collaborating effectively with teams to ensure seamless operations</span>
+                                            <i data-lucide="check-circle" class="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="hidden md:block"></div>
+                        </div>
+                    </div>
+
+                    <!-- LUX* Resorts -->
+                    <div class="relative fade-in">
+                        <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-slate-600 rounded-full border-4 border-slate-900 z-10"></div>
+                        <div class="ml-20 md:ml-0 md:grid md:grid-cols-2 gap-8 items-center">
+                            <div class="hidden md:block"></div>
+                            <div class="md:pl-12">
+                                <div class="glass rounded-2xl p-6 resort-card border-l-4 border-yellow-400 md:border-l-0 md:border-r-4">
+                                    <span class="text-yellow-400 text-sm font-semibold tracking-wider">Jan 2019 - Sep 2021</span>
+                                    <h3 class="text-2xl font-bold serif mt-2 mb-1">Food & Beverage Associate</h3>
+                                    <a href="https://www.luxresorts.com/" target="_blank" class="resort-link text-lg inline-flex items-center gap-2 mb-4">
+                                        LUX* Resorts & Hotels <i data-lucide="external-link" class="w-4 h-4"></i>
+                                    </a>
+                                    <ul class="space-y-2 text-sm text-slate-300">
+                                        <li class="flex items-start gap-2">
+                                            <i data-lucide="check-circle" class="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0"></i>
+                                            <span>Flexible schedule availability and strong work ethic</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i data-lucide="check-circle" class="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0"></i>
+                                            <span>Contributing positively to team dynamics</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Anantara -->
+                    <div class="relative fade-in">
+                        <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-slate-600 rounded-full border-4 border-slate-900 z-10"></div>
+                        <div class="ml-20 md:ml-0 md:grid md:grid-cols-2 gap-8 items-center">
+                            <div class="md:text-right md:pr-12">
+                                <div class="glass rounded-2xl p-6 resort-card border-l-4 border-yellow-400">
+                                    <span class="text-yellow-400 text-sm font-semibold tracking-wider">Jan 2011 - Jul 2018</span>
+                                    <h3 class="text-2xl font-bold serif mt-2 mb-1">Food & Beverage Associate</h3>
+                                    <a href="https://www.anantara.com/en/veli-maldives" target="_blank" class="resort-link text-lg inline-flex items-center gap-2 mb-4">
+                                        Anantara Maldives <i data-lucide="external-link" class="w-4 h-4"></i>
+                                    </a>
+                                    <ul class="space-y-2 text-sm text-slate-300">
+                                        <li class="flex items-start gap-2 md:justify-end">
+                                            <span>Skilled in providing exceptional customer service</span>
+                                            <i data-lucide="check-circle" class="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0"></i>
+                                        </li>
+                                        <li class="flex items-start gap-2 md:justify-end">
+                                            <span>Ensuring enjoyable dining experiences for all guests</span>
+                                            <i data-lucide="check-circle" class="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="hidden md:block"></div>
+                        </div>
+                    </div>
+
+                    <!-- Halaveli -->
+                    <div class="relative fade-in">
+                        <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-slate-600 rounded-full border-4 border-slate-900 z-10"></div>
+                        <div class="ml-20 md:ml-0 md:grid md:grid-cols-2 gap-8 items-center">
+                            <div class="hidden md:block"></div>
+                            <div class="md:pl-12">
+                                <div class="glass rounded-2xl p-6 resort-card border-l-4 border-yellow-400 md:border-l-0 md:border-r-4">
+                                    <span class="text-yellow-400 text-sm font-semibold tracking-wider">May 2009 - Aug 2010</span>
+                                    <h3 class="text-2xl font-bold serif mt-2 mb-1">Laundry Attendant</h3>
+                                    <a href="https://www.constancehotels.com/en/hotels-resorts/maldives/constance-halaveli/" target="_blank" class="resort-link text-lg inline-flex items-center gap-2 mb-4">
+                                        Halaveli Resort <i data-lucide="external-link" class="w-4 h-4"></i>
+                                    </a>
+                                    <ul class="space-y-2 text-sm text-slate-300">
+                                        <li class="flex items-start gap-2">
+                                            <i data-lucide="check-circle" class="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0"></i>
+                                            <span>Knowledgeable in laundry chemicals and their appropriate use</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i data-lucide="check-circle" class="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0"></i>
+                                            <span>Maintaining fabric integrity and safety standards</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold serif mb-4">Expertise & Skills</h2>
+                <p class="text-slate-400">Core competencies refined across luxury hospitality environments</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Skill Categories -->
+                <div class="glass rounded-2xl p-8 fade-in hover:bg-white/10 transition-all duration-300 hover:scale-105">
+                    <div class="w-12 h-12 rounded-full bg-yellow-400/20 flex items-center justify-center mb-6">
+                        <i data-lucide="users" class="w-6 h-6 text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Interpersonal</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Team Player</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Communication</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Teamwork</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Customer Service</span>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-8 fade-in hover:bg-white/10 transition-all duration-300 hover:scale-105" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 rounded-full bg-yellow-400/20 flex items-center justify-center mb-6">
+                        <i data-lucide="zap" class="w-6 h-6 text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Operational</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Fast Learner</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Time Management</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Multitasking</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Problem Solving</span>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-8 fade-in hover:bg-white/10 transition-all duration-300 hover:scale-105" style="transition-delay: 0.2s;">
+                    <div class="w-12 h-12 rounded-full bg-yellow-400/20 flex items-center justify-center mb-6">
+                        <i data-lucide="trending-up" class="w-6 h-6 text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Business</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Upselling</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Promotions</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Guest Engagement</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Revenue Maximizing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages & Education -->
+            <div class="grid md:grid-cols-2 gap-6 mt-6">
+                <div class="glass rounded-2xl p-8 fade-in hover:bg-white/10 transition-all duration-300">
+                    <div class="flex items-start gap-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400/20 to-orange-400/20 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="globe" class="w-8 h-8 text-yellow-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-4">Languages</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span>English</span>
+                                        <span class="text-yellow-400 text-sm">Advanced</span>
+                                    </div>
+                                    <div class="w-full bg-slate-700 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-yellow-400 to-orange-400 h-2 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span>Dhivehi</span>
+                                        <span class="text-yellow-400 text-sm">Native</span>
+                                    </div>
+                                    <div class="w-full bg-slate-700 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-yellow-400 to-orange-400 h-2 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-8 fade-in hover:bg-white/10 transition-all duration-300">
+                    <div class="flex items-start gap-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400/20 to-orange-400/20 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="graduation-cap" class="w-8 h-8 text-yellow-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-2">Education</h3>
+                            <p class="text-lg text-slate-200">O'Level Certificate</p>
+                            <p class="text-slate-400">Muhibbuddin School | 2007</p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="text-xs bg-white/10 px-2 py-1 rounded text-slate-400">Islam</span>
+                                <span class="text-xs bg-white/10 px-2 py-1 rounded text-slate-400">Dhivehi</span>
+                                <span class="text-xs bg-white/10 px-2 py-1 rounded text-slate-400">English</span>
+                                <span class="text-xs bg-white/10 px-2 py-1 rounded text-slate-400">Maths</span>
+                                <span class="text-xs bg-white/10 px-2 py-1 rounded text-slate-400">Account</span>
+                                <span class="text-xs bg-white/10 px-2 py-1 rounded text-slate-400">Commerce</span>
+                                <span class="text-xs bg-white/10 px-2 py-1 rounded text-slate-400">Economics</span>
+                                <span class="text-xs bg-white/10 px-2 py-1 rounded text-slate-400">Travel & Tourism</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass rounded-3xl p-8 md:p-12 fade-in border border-yellow-400/20">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold serif mb-4">Let's Connect</h2>
+                    <p class="text-slate-400">Available for new opportunities in luxury hospitality</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="mailto:najih288@gmail.com" class="group flex items-center gap-4 p-6 rounded-2xl bg-white/5 hover:bg-white/10 transition-all hover:scale-105 border border-transparent hover:border-yellow-400/30">
+                        <div class="w-12 h-12 rounded-full bg-yellow-400/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="mail" class="w-6 h-6 text-yellow-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="text-sm text-slate-400">Email</div>
+                            <div class="font-semibold group-hover:text-yellow-400 transition-colors">najih288@gmail.com</div>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-slate-600 group-hover:text-yellow-400 transition-colors"></i>
+                    </a>
+
+                    <a href="tel:+9607960092" class="group flex items-center gap-4 p-6 rounded-2xl bg-white/5 hover:bg-white/10 transition-all hover:scale-105 border border-transparent hover:border-yellow-400/30">
+                        <div class="w-12 h-12 rounded-full bg-yellow-400/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="phone" class="w-6 h-6 text-yellow-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="text-sm text-slate-400">Phone</div>
+                            <div class="font-semibold group-hover:text-yellow-400 transition-colors">+960 796-0092</div>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-slate-600 group-hover:text-yellow-400 transition-colors"></i>
+                    </a>
+                </div>
+
+                <!-- References -->
+                <div class="mt-12 pt-8 border-t border-white/10">
+                    <h3 class="text-lg font-semibold mb-6 text-center text-slate-400">Professional References</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all group">
+                            <div class="font-semibold text-yellow-400">Mr. Abdulla Shiunaz</div>
+                            <div class="text-slate-400 mt-1 text-sm">In Villa Dining Manager</div>
+                            <div class="text-slate-500 mt-1 text-xs">Jumeirah Maldives</div>
+                            <div class="mt-3 space-y-1">
+                                <a href="mailto:Tiurec@gmail.com" class="block text-xs text-yellow-400/70 hover:text-yellow-400 transition-colors">
+                                    <i data-lucide="mail" class="w-3 h-3 inline mr-1"></i> Tiurec@gmail.com
+                                </a>
+                                <a href="tel:+9607223919" class="block text-xs text-yellow-400/70 hover:text-yellow-400 transition-colors">
+                                    <i data-lucide="phone" class="w-3 h-3 inline mr-1"></i> +960 722-3919
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all group">
+                            <div class="font-semibold text-yellow-400">Mr. Abdulla Shahidh</div>
+                            <div class="text-slate-400 mt-1 text-sm">Restaurant Manager</div>
+                            <div class="text-slate-500 mt-1 text-xs">Jumeirah Maldives</div>
+                            <a href="tel:+9607515908" class="mt-3 inline-flex items-center gap-1 text-xs text-yellow-400/70 hover:text-yellow-400 transition-colors">
+                                <i data-lucide="phone" class="w-3 h-3"></i> +960 751-5908
+                            </a>
+                        </div>
+                        <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all group">
+                            <div class="font-semibold text-yellow-400">Brian Dsouza</div>
+                            <div class="text-slate-400 mt-1 text-sm">F&B Director</div>
+                            <div class="text-slate-500 mt-1 text-xs">Jumeirah Maldives</div>
+                            <div class="mt-3 text-xs text-slate-500">Contact via Jumeirah HR</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download CV Button -->
+                <div class="mt-8 text-center">
+                    <button onclick="window.print()" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-yellow-400/30 text-yellow-400 hover:bg-yellow-400/10 transition-all">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        Save as PDF / Print
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-slate-500 text-sm">
+        <p>&copy; 2024 Mohamed Najih Naseem. All rights reserved.</p>
+        <div class="flex justify-center gap-4 mt-4">
+            <a href="mailto:najih288@gmail.com" class="hover:text-yellow-400 transition-colors">Email</a>
+            <span>•</span>
+            <a href="tel:+9607960092" class="hover:text-yellow-400 transition-colors">Phone</a>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.parallax-bg');
+            parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>
